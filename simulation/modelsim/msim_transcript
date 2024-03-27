@@ -1,0 +1,58 @@
+# Reading pref.tcl
+# do AdderSubtractor_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -2008 -work work {C:/Users/Asronic/Desktop/university/Term 6/Logic Circuit LAB/FullAdder4bit/AdderSubtractor.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:01 on Mar 08,2022
+# vcom -reportprogress 300 -2008 -work work C:/Users/Asronic/Desktop/university/Term 6/Logic Circuit LAB/FullAdder4bit/AdderSubtractor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity AdderSubtractor
+# -- Compiling architecture Structure of AdderSubtractor
+# End time: 22:42:01 on Mar 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Asronic/Desktop/university/Term 6/Logic Circuit LAB/FullAdder4bit/FullAdder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:42:02 on Mar 08,2022
+# vcom -reportprogress 300 -2008 -work work C:/Users/Asronic/Desktop/university/Term 6/Logic Circuit LAB/FullAdder4bit/FullAdder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fulladder
+# -- Compiling architecture logic_func of fulladder
+# End time: 22:42:02 on Mar 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+wave create -pattern none -portmode in -language vhdl -range 9 0 /addersubtractor/sw
+# Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
+# addersubtractor
+wave create -pattern none -portmode out -language vhdl -range 9 0 /addersubtractor/ledr
+# addersubtractor
+wave modify -driver freeze -pattern random -initialvalue 0000000000 -period 125ns -random_type Normal -seed 1 -range 9 0 -starttime 0ns -endtime 1000ns NewSig:/addersubtractor/sw
+# addersubtractor
+vsim work.addersubtractor
+# vsim work.addersubtractor 
+# Start time: 22:42:39 on Mar 08,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.addersubtractor(structure)
+# Loading work.fulladder(logic_func)
+add wave -position end  sim:/addersubtractor/input1
+add wave -position end  sim:/addersubtractor/sw(4)
+add wave -position end  sim:/addersubtractor/input2
+add wave -position end  sim:/addersubtractor/ledr
+run 1000
+# End time: 22:43:47 on Mar 08,2022, Elapsed time: 0:01:08
+# Errors: 0, Warnings: 0

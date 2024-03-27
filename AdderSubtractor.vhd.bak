@@ -1,0 +1,29 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY AdderSubtractor IS
+	PORT(
+			sw			: IN  STD_LOGIC_VECTOR(9 DOWNTO 0);
+			ledr		: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+		);
+END AdderSubtractor;
+
+ARCHITECTURE Structure OF AdderSubtractor IS 
+
+	SIGNAL c : STD_LOGIC_VECTOR(4 DOWNTO 1);
+	
+	COMPONENT fulladd
+		PORT(
+				cin, x, y  :  IN  STD_LOGIC;
+				s, cout    : OUT  STD_LOGIC 
+			);
+	END COMPONENT;
+		
+BEGIN 
+		stage0: fulladd PORT MAP(sw(4),sw(0),sw(5),ledr(0),c(1));
+		stage1: fulladd PORT MAP(c(1),sw(1),sw(6),ledr(1),c(2));
+		stage2: fulladd PORT MAP(c(2),sw(2),sw(7),ledr(2),c(3));
+		stage3: fulladd PORT MAP(c(3),sw3(3),sw(8),ledr(3),c(4));
+		ledr(4) <= c(4);
+
+END Structure;	
